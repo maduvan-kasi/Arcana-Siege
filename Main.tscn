@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Movement_Master.gd" type="Script" id=1]
 [ext_resource path="res://Assests/backdrop.png" type="Texture" id=2]
 [ext_resource path="res://Bullet_Master.gd" type="Script" id=3]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Deck_Master.gd" type="Script" id=5]
+[ext_resource path="res://Card.tscn" type="PackedScene" id=6]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 [node name="Movement_Master" type="Node" parent="." index="0"]
 
@@ -24,5 +26,33 @@ script = ExtResource( 3 )
 [node name="Player" parent="." index="3" instance=ExtResource( 4 )]
 
 position = Vector2( 512, 550 )
+
+[node name="Deck_Master" type="Node" parent="." index="4"]
+
+script = ExtResource( 5 )
+
+[node name="cardTest" parent="Deck_Master" index="0" instance=ExtResource( 6 )]
+
+position = Vector2( 623.5, 630 )
+rotation = 0.575959
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimatedSprite2" parent="Deck_Master" index="1" instance=ExtResource( 6 )]
+
+position = Vector2( 512, 600 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimatedSprite3" parent="Deck_Master" index="2" instance=ExtResource( 6 )]
+
+position = Vector2( 400.5, 630 )
+rotation = -0.575959
+_sections_unfolded = [ "Transform" ]
+
+[node name="Timer" type="Timer" parent="Deck_Master" index="3"]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = true
+autostart = false
 
 
